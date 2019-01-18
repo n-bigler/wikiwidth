@@ -1,0 +1,32 @@
+{
+
+  "manifest_version": 2,
+  "name": "WikiWidth",
+  "version": "0.1",
+	"applications": {
+		"gecko": {
+			"id": "wikiwidth@meiru.ch"
+		}
+	},
+
+  "description": "Modifies the width of wikipedia articles.",
+	"permissions": ["tabs", "storage"],
+
+  "icons": {
+    "48": "icons/wikiwidth.svg",
+    "96": "icons/wikiwidth.svg"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.wikipedia.org/wiki/*"],
+      "js": ["wikiwidth.js"]
+    }
+  ],
+
+  "browser_action": {
+    "default_icon": "icons/wikiwidth.svg",
+    "default_title": "WikiWidth",
+    "default_popup": "popup/parameters.html"
+  }
+}
