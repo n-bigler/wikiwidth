@@ -3,11 +3,6 @@
   "manifest_version": 2,
   "name": "WikiWidth",
   "version": "0.1",
-	"applications": {
-		"gecko": {
-			"id": "wikiwidth@wikiwidth.com"
-		}
-	},
 
   "description": "Modifies the width of wikipedia articles.",
 	"permissions": ["tabs", "storage"],
