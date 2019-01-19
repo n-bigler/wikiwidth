@@ -1,6 +1,6 @@
 /**
- * Listen for changes in the parameters, and send the appropriate message to
- * the content script in the page.
+ * Listen for changes in the parameters, and ask the content
+ * scripts to update.
  */
 function listenForChanges() {
 	var urlPattern = "*://*.wikipedia.org/wiki/*";
@@ -13,8 +13,12 @@ function listenForChanges() {
 			browser.tabs.query({url: urlPattern}).then(turnOff);	
 		}
 	});
+
+	/**
+	 * Store the new status and send the message to
+	 * the content scripts to update.
+	 */
 	function turnOn(tabs) {
-		console.log('turning on');
 		browser.storage.local.set({
 			"status": true 
 		});
@@ -24,6 +28,11 @@ function listenForChanges() {
 			});
 		}
 	}
+
+	/**
+	 * Store the new status and send the message to
+	 * the content scripts to update.
+	 */
 	function turnOff(tabs) {
 		browser.storage.local.set({
 			"status":	false 
@@ -35,6 +44,11 @@ function listenForChanges() {
 			});
 		}
 	}
+
+	/**
+	 * Store the new size and send message to the content scripts
+	 * to update.
+	 */
 	function resize(param){
 		var tabs = param[0];
 		var size = param[1];
